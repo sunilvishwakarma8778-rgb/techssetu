@@ -1,16 +1,16 @@
+# dependencies
+node_modules
 
+# build outputs
+dist
+build
+.next
+out
 
+# system files
+.DS_Store
 
-
-
-
-
-
-
-
-
-
-
-git rm -r --cached node_modules
-
-
+# env files
+.env
+.env.local
+.env.production
