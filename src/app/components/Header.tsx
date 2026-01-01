@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-import techLogo from "../../../src/app/assets/image/techssetU2.png";
+import techLogo from "../assets/techssetu5.png";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,7 +34,7 @@ export function Header() {
         
         <div className="flex items-center justify-between">
           <div className="flex items-center ">
-            <img src={techLogo} alt="Techssetu logo" className="w-15 h-15 object-contain" />
+            <img src={techLogo} alt="Techssetu logo" className="w-13 h-10 object-contain" />
             <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               TECHSSETU
             </div>
@@ -78,7 +78,18 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 flex flex-col gap-4 bg-white rounded-lg shadow-lg p-4">
+          <div className="md:hidden fixed inset-0 z-40 bg-white p-6 overflow-auto">
+            <div className="flex justify-end">
+              <button
+                className="text-gray-800"
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Close menu"
+                type="button"
+              >
+                <X size={28} />
+              </button>
+            </div>
+            <div className="mt-6 pb-4 flex flex-col gap-4">
             <button onClick={() => scrollToSection('home')} className="text-left hover:text-blue-600 transition-colors">
               Home
             </button>
@@ -100,6 +111,7 @@ export function Header() {
             <Button onClick={() => scrollToSection('contact')} className="bg-blue-600 hover:bg-blue-700 w-full">
               Contact Us
             </Button>
+            </div>
           </div>
         )}
       </nav>

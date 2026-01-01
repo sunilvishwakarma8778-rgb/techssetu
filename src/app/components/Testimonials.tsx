@@ -2,8 +2,16 @@ import { motion } from 'motion/react';
 import { Star, Quote } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 
+type Testimonial = {
+  name: string;
+  image: string;
+  text: string;
+  rating: number;
+  role?: string;
+};
+
 export function Testimonials() {
-  const testimonials = [
+  const testimonials: Testimonial[] = [
     {
       name: 'Sangam Prajapati',
       image: "src/app/assets/sangam.jpg",

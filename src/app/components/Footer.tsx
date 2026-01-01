@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
-import techLogo from "../../../src/app/assets/image/techssetu logo black.png";
+import techLogo from "../assets/techssetu5.png";
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -13,7 +13,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
               Techssetu
@@ -21,7 +21,7 @@ export function Footer() {
             <p className="text-sm mb-4">
               Empowering businesses with innovative digital solutions.
             </p>
-            <img src={techLogo} alt="Techssetu logo" className="w-15 h-15 object-contain" />
+            <img src={techLogo} alt="Techssetu logo" className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
             {/* <div className="flex gap-4">
               <a
                 href="https://twitter.com"
@@ -98,7 +98,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <Mail size={18} className="mt-1 flex-shrink-0" />
-                <a href="sunilvishwakarma8778@gmail.com" className="hover:text-blue-400 transition-colors">
+                <a href="mailto:sunilvishwakarma8778@gmail.com" className="hover:text-blue-400 transition-colors">
                   sunilvishwakarma8778@gmail.com
                 </a>
               </li>
