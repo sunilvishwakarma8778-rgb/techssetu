@@ -174,5 +174,5 @@ fix_*.patch
 /private/react-native-fantom/.out/
 /private/react-native-fantom/tester/build/
 
-# [Experimental] Generated TS type definitions
+# #[Experimental] Generated TS type definitions
 /packages/**/types_generated/
