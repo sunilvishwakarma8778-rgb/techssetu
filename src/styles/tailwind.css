@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: import animation utilities if used in the project */
+@import 'tw-animate-css';
