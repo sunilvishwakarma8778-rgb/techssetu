@@ -1,10 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { motion } from 'motion/react';
-import Lottie from 'lottie-react';
-
-// ✅ FIX: Direct JSON import (Vite compatible)
-import hero3dAnimation from '../../assets/hero3d1.json';
 
 export function Hero() {
   const scrollToSection = (id: string) => {
@@ -83,12 +79,12 @@ export function Hero() {
             className="flex justify-center relative"
           >
             {/* ✅ FIXED: Lottie now renders */}
-            <Lottie
-              animationData={hero3dAnimation}
-              loop
-              autoplay
-              className="w-[300px] sm:w-[380px] lg:w-[420px]"
+                <img
+              src="https://images.unsplash.com/photo-1758518729685-f88df7890776?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBvZmZpY2UlMjB0ZWFtJTIwY29sbGFib3JhdGlvbnxlbnwxfHx8fDE3NjY4OTk1Mzd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+              alt="Team collaboration"
+              className="rounded-2xl shadow-2xl w-full"
             />
+
 
             {/* TRUST BADGE */}
             <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-xl shadow-xl">
