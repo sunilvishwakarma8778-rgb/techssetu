@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-// Use Vite-compatible runtime URL for the logo to avoid module resolution issues
 import techLogo from '../../assets/techssetu5.png';
 
 export function Header() {

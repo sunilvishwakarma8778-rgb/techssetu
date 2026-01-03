@@ -1,12 +1,12 @@
-import { Mail, Phone, MapPin, Globe } from 'lucide-react';
-const techLogo = new URL('../assets/techssetu5.png', import.meta.url).href;
+import { Phone, MapPin, MessageCircle, Mail } from "lucide-react";
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -21,55 +21,70 @@ export function Footer() {
             <p className="text-sm mb-4">
               Empowering businesses with innovative digital solutions.
             </p>
-            <img src={techLogo} alt="Techssetu logo" className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
-            {/* <div className="flex gap-4">
+            <img
+              src="/src/assets/techssetu5.png"
+              className="w-13 h-10 object-contain"
+            />
+            <div className="flex gap-4">
               <a
-                href="https://twitter.com"
+                href="https://wa.me/917355757848"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
               >
-                <Globe size={20} />
+                <MessageCircle size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="mailto:sunilvishwakarma8778@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
               >
-                <Globe size={20} />
+                <Mail size={20} />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://wa.me/916393267067"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
               >
-                <Globe size={20} />
+                <MessageCircle size={20} />
               </a>
-            </div> */}
+            </div>
           </div>
 
           <div>
             <h3 className="text-white mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <button onClick={() => scrollToSection('home')} className="hover:text-blue-400 transition-colors">
+                <button
+                  onClick={() => scrollToSection("home")}
+                  className="hover:text-blue-400 transition-colors"
+                >
                   Home
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('about')} className="hover:text-blue-400 transition-colors">
+                <button
+                  onClick={() => scrollToSection("about")}
+                  className="hover:text-blue-400 transition-colors"
+                >
                   About
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('services')} className="hover:text-blue-400 transition-colors">
+                <button
+                  onClick={() => scrollToSection("services")}
+                  className="hover:text-blue-400 transition-colors"
+                >
                   Services
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('portfolio')} className="hover:text-blue-400 transition-colors">
+                <button
+                  onClick={() => scrollToSection("portfolio")}
+                  className="hover:text-blue-400 transition-colors"
+                >
                   Portfolio
                 </button>
               </li>
@@ -98,26 +113,36 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <Mail size={18} className="mt-1 flex-shrink-0" />
-                <a href="mailto:sunilvishwakarma8778@gmail.com" className="hover:text-blue-400 transition-colors">
+                <a
+                  href="mailto:sunilvishwakarma8778@gmail.com"
+                  className="hover:text-blue-400 transition-colors"
+                >
                   sunilvishwakarma8778@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <Phone size={18} className="mt-1 flex-shrink-0" />
-                <a href="tel:+917355757848" className="hover:text-blue-400 transition-colors">
+                <a
+                  href="tel:+917355757848"
+                  className="hover:text-blue-400 transition-colors"
+                >
                   +91 7355757848
                 </a>
               </li>
-               <li className="flex items-start gap-2">
+              <li className="flex items-start gap-2">
                 <Phone size={18} className="mt-1 flex-shrink-0" />
-                <a href="tel:+916393267067" className="hover:text-blue-400 transition-colors">
+                <a
+                  href="tel:+916393267067"
+                  className="hover:text-blue-400 transition-colors"
+                >
                   +91 6393267067
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />
                 <span className="text-sm">
-                  Gorakhpur,<br />
+                  Gorakhpur,
+                  <br />
                   Uttar Pradesh, India
                 </span>
               </li>
