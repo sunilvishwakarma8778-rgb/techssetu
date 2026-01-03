@@ -9,12 +9,12 @@ import {
 import { Badge } from './ui/badge';
 
 /* Images */
-const eweb = new URL('../assets/eweb.png', import.meta.url).href;
-const appImg = new URL('../assets/app.png', import.meta.url).href;
-const webschool = new URL('../assets/webschool.png', import.meta.url).href;
+const eweb = new URL('../assets/1.png', import.meta.url).href;
+const appImg = new URL('../assets/2.png', import.meta.url).href;
+const webschool = new URL('../assets/3.png', import.meta.url).href;
 const gapp = new URL('../assets/image/gapp.jpg', import.meta.url).href;
-const pgrsapp = new URL('../assets/pgrsapp.png', import.meta.url).href;
-const senergy = new URL('../assets/senergy.png', import.meta.url).href;
+const pgrsapp = new URL('../assets/5.png', import.meta.url).href;
+const senergy = new URL('../assets/6.png', import.meta.url).href;
 
 const projects = [
   {
