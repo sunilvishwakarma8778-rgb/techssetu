@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
-import techLogo from "../assets/techssetu5.png";
+const techLogo = new URL('../assets/techssetu5.png', import.meta.url).href;
 export function Footer() {
   const currentYear = new Date().getFullYear();
 

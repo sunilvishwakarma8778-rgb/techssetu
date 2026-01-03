@@ -7,14 +7,13 @@ import {
   CardTitle,
 } from './ui/card';
 import { Badge } from './ui/badge';
-
 /* Images */
-const eweb = new URL('../assets/1.png', import.meta.url).href;
-const appImg = new URL('../assets/2.png', import.meta.url).href;
-const webschool = new URL('../assets/3.png', import.meta.url).href;
-const gapp = new URL('../assets/image/gapp.jpg', import.meta.url).href;
-const pgrsapp = new URL('../assets/5.png', import.meta.url).href;
-const senergy = new URL('../assets/6.png', import.meta.url).href;
+import web from '../../assets/kuldungaweb.png';
+import eapp from '../../assets/eapp.png';
+import littile from '../../assets/littile.png';
+import pgrs from '../../assets/pgrs.png';
+import senergy from '../../assets/senergy.png';
+import city from '../../assets/city.jpg';
 
 const projects = [
   {
@@ -22,7 +21,7 @@ const projects = [
     category: 'Web Development',
     description:
       'Built a full-featured e-commerce website for an electric retailer, increasing online sales by 250%.',
-    image: eweb,
+    image: web,
     url: 'https://kaldunga.com/',
     tags: ['React', 'Node.js', 'Stripe'],
   },
@@ -31,7 +30,7 @@ const projects = [
     category: 'Mobile Development',
     description:
       'Developed a scalable e-commerce mobile app with analytics and Firebase backend.',
-    image: appImg,
+    image: eapp,
     url: 'https://play.google.com/store/apps/details?id=com.aurget.buddha',
     tags: ['React Native', 'Firebase', 'Analytics'],
   },
@@ -40,7 +39,7 @@ const projects = [
     category: 'Web Development',
     description:
       'Designed and developed a responsive school website improving communication between parents and faculty.',
-    image: webschool,
+    image: littile,
     url: 'https://school-navy-tau.vercel.app/',
     tags: ['Figma', 'Design System', 'React'],
   },
@@ -49,7 +48,7 @@ const projects = [
     category: 'Government App',
     description:
       'Secure and user-friendly government mobile application providing access to public services.',
-    image: gapp,
+    image: city,
     url: 'https://play.google.com/store/apps/details?id=com.ramainfotech.citybus',
     tags: ['React Native', 'Firebase'],
   },
@@ -58,7 +57,7 @@ const projects = [
     category: 'Government App',
     description:
       'Citizen grievance and feedback app designed for seamless government service interaction.',
-    image: pgrsapp,
+    image: pgrs,
     url: 'https://play.google.com/store/apps/details?id=com.rtgs.ap_pgrs_auth',
     tags: ['React Native', 'Firebase'],
   },
