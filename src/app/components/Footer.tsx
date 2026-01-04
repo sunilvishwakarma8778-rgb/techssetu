@@ -1,5 +1,5 @@
 import { Phone, MapPin, MessageCircle, Mail } from "lucide-react";
-
+import techLogo from '../../assets/techssetu5.png';
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -22,9 +22,8 @@ export function Footer() {
               Empowering businesses with innovative digital solutions.
             </p>
             <img
-              src="/src/assets/techssetu5.png"
-              className="w-13 h-10 object-contain"
-            />
+              src={techLogo} alt="Techssetu logo" className="w-13 h-10 object-contain" />
+            
             <div className="flex gap-4">
               <a
                 href="https://wa.me/917355757848"

@@ -14,7 +14,7 @@ export function Services() {
       icon: Smartphone,
       title: 'Mobile App Development',
       description: 'Native and cross-platform mobile applications that engage users and drive business growth.',
-      features: ['iOS & Android', 'React Native', 'App Store Optimization', 'Push Notifications'],
+      features: ['iOS & Android', 'React Native', 'Flutter', 'Java'],
     },
     {
       icon: Palette,
