@@ -66,25 +66,25 @@ export function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-20 bg-gradient-to-br from-blue-50 to-purple-50"
+      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-br from-blue-50 to-purple-50"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-3 sm:px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl mb-4">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 md:mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm xs:text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
             Don't just take our word for it — hear from businesses we've helped.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
@@ -95,39 +95,39 @@ export function Testimonials() {
             >
               {/* ✅ className yahan properly apply hua */}
               <Card
-                className={`h-full hover:shadow-xl transition-shadow ${
+                className={`h-full hover:shadow-lg sm:hover:shadow-xl transition-shadow ${
                   testimonial.className ?? ""
                 }`}
               >
-                <CardContent className="pt-6 flex flex-col h-full">
-                  <Quote className="text-blue-600 mb-4" size={40} />
+                <CardContent className="pt-4 sm:pt-6 flex flex-col h-full">
+                  <Quote className="text-blue-600 mb-3 sm:mb-4 flex-shrink-0" size={32} />
 
-                  <div className="flex mb-4">
+                  <div className="flex mb-3 sm:mb-4 gap-1">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star
                         key={i}
                         className="text-yellow-400 fill-yellow-400"
-                        size={20}
+                        size={18}
                       />
                     ))}
                   </div>
 
-                  <p className="text-gray-700 mb-6 flex-grow">
+                  <p className="text-xs xs:text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 flex-grow leading-relaxed">
                     {testimonial.text}
                   </p>
 
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 sm:gap-4 mt-auto">
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0"
                     />
-                    <div>
-                      <div className="font-semibold">
+                    <div className="min-w-0">
+                      <div className="font-semibold text-xs xs:text-sm sm:text-base truncate">
                         {testimonial.name}
                       </div>
                       {testimonial.role && (
-                        <div className="text-sm text-gray-600">
+                        <div className="text-xs text-gray-600 truncate">
                           {testimonial.role}
                         </div>
                       )}
