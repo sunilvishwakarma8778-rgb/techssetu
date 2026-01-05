@@ -56,44 +56,44 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="container mx-auto px-3 sm:px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl mb-4">Get In Touch</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 md:mb-4">Get In Touch</h2>
+          <p className="text-sm xs:text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
             Ready to start your project? Contact us today for a free consultation and let's bring your vision to life.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl mb-6">Contact Information</h3>
-            <div className="space-y-6 mb-8">
+            <h3 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 font-semibold">Contact Information</h3>
+            <div className="space-y-3 sm:space-y-4 md:space-y-6 mb-6 sm:mb-8">
               {contactInfo.map((info) => (
                 <Card key={info.title}>
-                  <CardContent className="flex items-start gap-4 pt-6">
-                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <info.icon className="text-white" size={24} />
+                  <CardContent className="flex items-start gap-3 sm:gap-4 pt-4 sm:pt-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <info.icon className="text-white" size={20} />
                     </div>
-                    <div>
-                      <div className="text-sm text-gray-600 mb-1">{info.title}</div>
+                    <div className="min-w-0">
+                      <div className="text-xs xs:text-sm text-gray-600 mb-1">{info.title}</div>
                       {info.link ? (
-                        <a href={info.link} className="text-gray-900 hover:text-blue-600 transition-colors">
+                        <a href={info.link} className="text-xs xs:text-sm sm:text-base text-gray-900 hover:text-blue-600 transition-colors break-all">
                           {info.value}
                         </a>
                       ) : (
-                        <div className="text-gray-900">{info.value}</div>
+                        <div className="text-xs xs:text-sm sm:text-base text-gray-900">{info.value}</div>
                       )}
                     </div>
                   </CardContent>
@@ -101,28 +101,28 @@ export function Contact() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white p-8 rounded-2xl">
-              <h3 className="text-2xl mb-4">Why Choose Techssetu?</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-2">
-                  <span className="text-2xl">✓</span>
-                  <span>Free initial consultation</span>
+            <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl">
+              <h3 className="text-lg xs:text-xl sm:text-2xl md:text-3xl mb-3 sm:mb-4 font-semibold">Why Choose Techssetu?</h3>
+              <ul className="space-y-2 sm:space-y-3">
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <span className="text-xl sm:text-2xl flex-shrink-0">✓</span>
+                  <span className="text-xs xs:text-sm sm:text-base">Free initial consultation</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-2xl">✓</span>
-                  <span>Transparent pricing</span>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <span className="text-xl sm:text-2xl flex-shrink-0">✓</span>
+                  <span className="text-xs xs:text-sm sm:text-base">Transparent pricing</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-2xl">✓</span>
-                  <span>100% satisfaction guarantee</span>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <span className="text-xl sm:text-2xl flex-shrink-0">✓</span>
+                  <span className="text-xs xs:text-sm sm:text-base">100% satisfaction guarantee</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-2xl">✓</span>
-                  <span>Dedicated project manager</span>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <span className="text-xl sm:text-2xl flex-shrink-0">✓</span>
+                  <span className="text-xs xs:text-sm sm:text-base">Dedicated project manager</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-2xl">✓</span>
-                  <span>On-time delivery</span>
+                <li className="flex items-start sm:items-center gap-2 sm:gap-3">
+                  <span className="text-xl sm:text-2xl flex-shrink-0">✓</span>
+                  <span className="text-xs xs:text-sm sm:text-base">On-time delivery</span>
                 </li>
               </ul>
             </div>
@@ -135,10 +135,10 @@ export function Contact() {
             viewport={{ once: true }}
           >
             <Card>
-              <CardContent className="pt-6">
-                <form onSubmit={handleSubmit} className="space-y-4">
+              <CardContent className="pt-4 sm:pt-6">
+                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm mb-2">
+                    <label htmlFor="name" className="block text-xs xs:text-sm mb-1.5 sm:mb-2 font-medium">
                       Name *
                     </label>
                     <Input
@@ -148,10 +148,11 @@ export function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="Your Name"
+                      className="text-xs xs:text-sm sm:text-base h-9 sm:h-10"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm mb-2">
+                    <label htmlFor="email" className="block text-xs xs:text-sm mb-1.5 sm:mb-2 font-medium">
                       Email *
                     </label>
                     <Input
@@ -162,10 +163,11 @@ export function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="Yourname@example.com"
+                      className="text-xs xs:text-sm sm:text-base h-9 sm:h-10"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm mb-2">
+                    <label htmlFor="phone" className="block text-xs xs:text-sm mb-1.5 sm:mb-2 font-medium">
                       Phone
                     </label>
                     <Input
@@ -175,10 +177,11 @@ export function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+1 (555) 123-4567"
+                      className="text-xs xs:text-sm sm:text-base h-9 sm:h-10"
                     />
                   </div>
                   <div>
-                    <label htmlFor="company" className="block text-sm mb-2">
+                    <label htmlFor="company" className="block text-xs xs:text-sm mb-1.5 sm:mb-2 font-medium">
                       Company
                     </label>
                     <Input
@@ -187,10 +190,11 @@ export function Contact() {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Your Company Name"
+                      className="text-xs xs:text-sm sm:text-base h-9 sm:h-10"
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm mb-2">
+                    <label htmlFor="message" className="block text-xs xs:text-sm mb-1.5 sm:mb-2 font-medium">
                       Message *
                     </label>
                     <Textarea
@@ -200,25 +204,25 @@ export function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="Tell us about your project..."
-                      rows={5}
+                      rows={4}
+                      className="text-xs xs:text-sm sm:text-base"
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700"
-                    size="lg"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-xs xs:text-sm sm:text-base h-9 sm:h-10"
                     disabled={isSubmitted}
                   >
                     {isSubmitted ? (
                       'Message Sent! ✓'
                     ) : (
                       <>
-                        Send Message <Send className="ml-2" size={20} />
+                        Send Message <Send className="ml-2" size={16} />
                       </>
                     )}
                   </Button>
                   {isSubmitted && (
-                    <p className="text-green-600 text-center text-sm">
+                    <p className="text-green-600 text-center text-xs xs:text-sm">
                       Thank you! We'll get back to you within 24 hours.
                     </p>
                   )}
