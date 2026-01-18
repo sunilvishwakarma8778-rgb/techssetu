@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useState } from 'react';
 import {
   Card,
   CardContent,
@@ -7,13 +8,6 @@ import {
   CardTitle,
 } from './ui/card';
 import { Badge } from './ui/badge';
-/* Images */
-import web from '../../assets/kuldungaweb.png';
-import eapp from '../../assets/eapp.png';
-import littile from '../../assets/littile.png';
-import pgrs from '../../assets/pgrs.png';
-import senergy from '../../assets/senergy.png';
-import city from '../../assets/city.jpg';
 
 const projects = [
   {
@@ -21,7 +15,7 @@ const projects = [
     category: 'Web Development',
     description:
       'Built a full-featured e-commerce website for an electric retailer, increasing online sales by 250%.',
-    image: web,
+    image: 'https://i.pinimg.com/736x/d9/c9/ca/d9c9ca3071f052121f8c70ccd8b0e89b.jpg',
     url: 'https://kaldunga.com/',
     tags: ['React', 'Node.js', 'Stripe'],
   },
@@ -30,7 +24,7 @@ const projects = [
     category: 'Mobile Development',
     description:
       'Developed a scalable e-commerce mobile app with analytics and Firebase backend.',
-    image: eapp,
+    image: 'https://i.pinimg.com/736x/17/a9/35/17a9354ee1dd1cb3fce8930216b26e3b.jpg',
     url: 'https://play.google.com/store/apps/details?id=com.aurget.buddha',
     tags: ['React Native', 'Firebase', 'Analytics'],
   },
@@ -39,7 +33,7 @@ const projects = [
     category: 'Web Development',
     description:
       'Designed and developed a responsive school website improving communication between parents and faculty.',
-    image: littile,
+    image: 'https://i.pinimg.com/736x/0a/58/ef/0a58efbc6cb292c68f32cd34b1aa1cf2.jpg',
     url: 'https://school-navy-tau.vercel.app/',
     tags: ['Figma', 'Design System', 'React'],
   },
@@ -48,7 +42,7 @@ const projects = [
     category: 'Government App',
     description:
       'Secure and user-friendly government mobile application providing access to public services.',
-    image: city,
+    image: 'https://i.pinimg.com/736x/f7/75/8f/f7758f919f7ea349759d3c660202254b.jpg',
     url: 'https://play.google.com/store/apps/details?id=com.ramainfotech.citybus',
     tags: ['React Native', 'Firebase'],
   },
@@ -57,7 +51,7 @@ const projects = [
     category: 'Government App',
     description:
       'Citizen grievance and feedback app designed for seamless government service interaction.',
-    image: pgrs,
+    image: 'https://i.pinimg.com/736x/9a/d3/29/9ad3293bf6fa444f55ca27a998c91d2c.jpg',
     url: 'https://play.google.com/store/apps/details?id=com.rtgs.ap_pgrs_auth',
     tags: ['React Native', 'Firebase'],
   },
@@ -66,36 +60,43 @@ const projects = [
     category: 'Web Development',
     description:
       'Marketing campaign website focused on lead generation and brand visibility.',
-    image: senergy,
+    image: 'https://i.pinimg.com/736x/b4/07/d9/b407d97642d266013347c4855046fdb5.jpg',
     url: 'https://www.synergy-access.com/',
     tags: ['React', 'Node.js'],
   },
 ];
 
 export function Portfolio() {
+  const [imageStates, setImageStates] = useState<Record<string, boolean>>({});
+
+  const handleImageLoad = (title: string) => {
+    setImageStates(prev => ({ ...prev, [title]: true }));
+  };
+
   return (
-    <section id="portfolio" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
-      <div className="container mx-auto px-3 sm:px-4">
+    <section
+      id="portfolio"
+      className="py-12 sm:py-16 md:py-20 lg:py-24 scroll-mt-24 bg-white"
+    >
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12 md:mb-16"
+          className="text-center mb-16"
         >
-          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 md:mb-4">
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
             Our Portfolio
           </h2>
-          <p className="text-sm xs:text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
-            Explore our latest projects and see how we help businesses achieve
-            their digital goals.
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            Explore our latest projects and see how we help businesses grow.
           </p>
         </motion.div>
 
         {/* Grid */}
-       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.a
               key={project.title}
@@ -104,36 +105,44 @@ export function Portfolio() {
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
+              transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="block h-full"
+              className="group"
             >
-              <Card className="h-full overflow-hidden group hover:shadow-lg sm:hover:shadow-xl transition-shadow">
+              <Card className="h-full overflow-hidden transition hover:-translate-y-1 hover:shadow-xl">
                 {/* Image */}
-                <div className="relative overflow-hidden">
+                <div className="relative aspect-video bg-gray-100 overflow-hidden">
+                  {!imageStates[project.title] && (
+                    <div className="absolute inset-0 animate-pulse bg-gray-300" />
+                  )}
                   <img
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
-                    className="w-full h-40 xs:h-44 sm:h-52 md:h-56 lg:h-60 object-cover transition-transform duration-300 group-hover:scale-110"
+                    onLoad={() => handleImageLoad(project.title)}
+                    className={`w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 ${
+                      imageStates[project.title] ? 'opacity-100' : 'opacity-0'
+                    }`}
                   />
-                  <Badge className="absolute top-2 xs:top-3 sm:top-4 right-2 xs:right-3 sm:right-4 bg-blue-600 text-xs xs:text-sm">
+                  <Badge className="absolute top-4 right-4 bg-blue-600 text-white">
                     {project.category}
                   </Badge>
                 </div>
 
                 {/* Content */}
-                <CardHeader className="pb-3 sm:pb-4">
-                  <CardTitle className="text-base xs:text-lg sm:text-lg md:text-xl">{project.title}</CardTitle>
-                  <CardDescription className="text-xs xs:text-sm sm:text-base">
+                <CardHeader>
+                  <CardTitle className="group-hover:text-blue-600 transition">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription>
                     {project.description}
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent className="pt-0 sm:pt-2">
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="outline" className="text-xs xs:text-sm">
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <Badge key={tag} variant="outline">
                         {tag}
                       </Badge>
                     ))}

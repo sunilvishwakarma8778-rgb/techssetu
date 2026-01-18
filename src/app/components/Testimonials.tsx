@@ -95,39 +95,39 @@ export function Testimonials() {
             >
               {/* ✅ className yahan properly apply hua */}
               <Card
-                className={`h-full hover:shadow-lg sm:hover:shadow-xl transition-shadow ${
+                className={`h-full hover:shadow-xl transition-shadow ${
                   testimonial.className ?? ""
                 }`}
               >
-                <CardContent className="pt-4 sm:pt-6 flex flex-col h-full">
-                  <Quote className="text-blue-600 mb-3 sm:mb-4 flex-shrink-0" size={32} />
+                <CardContent className="pt-6 flex flex-col h-full">
+                  <Quote className="text-blue-600 mb-4" size={40} />
 
-                  <div className="flex mb-3 sm:mb-4 gap-1">
+                  <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star
                         key={i}
                         className="text-yellow-400 fill-yellow-400"
-                        size={18}
+                        size={20}
                       />
                     ))}
                   </div>
 
-                  <p className="text-xs xs:text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 flex-grow leading-relaxed">
+                  <p className="text-gray-700 mb-6 flex-grow">
                     {testimonial.text}
                   </p>
 
-                  <div className="flex items-center gap-2 sm:gap-4 mt-auto">
+                  <div className="flex items-center gap-4">
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover flex-shrink-0"
+                      className="w-12 h-12 rounded-full object-cover"
                     />
-                    <div className="min-w-0">
-                      <div className="font-semibold text-xs xs:text-sm sm:text-base truncate">
+                    <div>
+                      <div className="font-semibold">
                         {testimonial.name}
                       </div>
                       {testimonial.role && (
-                        <div className="text-xs text-gray-600 truncate">
+                        <div className="text-sm text-gray-600">
                           {testimonial.role}
                         </div>
                       )}

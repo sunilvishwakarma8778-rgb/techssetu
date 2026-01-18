@@ -1,20 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-// @ts-ignore: allow importing image assets without type declaration
+import { motion, AnimatePresence } from 'motion/react';
+// @ts-ignore - suppress missing module declaration for image import (add a global .d.ts for images to remove this)
 import techLogo from '../../assets/techssetu5.png';
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
@@ -24,118 +16,108 @@ export function Header() {
   }, [isMobileMenuOpen]);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setIsMobileMenuOpen(false);
   };
 
+  const navItems = ['home', 'about', 'services', 'portfolio', 'testimonials'];
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-white/60 backdrop-blur-sm'
-      }`}
-      style={{ WebkitBackdropFilter: !isScrolled ? 'blur(6px)' : undefined }}
+    <motion.header
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
+     className="fixed top-0 left-0 right-0 z-[100] bg-white shadow-lg border-b border-gray-100 overflow-x-hidden"
+
+
     >
-      <nav className="container mx-auto px-4 py-3 sm:py-4">
-        <div className="flex items-center justify-between gap-4">
-          {/* Logo Section */}
-          <div className="flex items-center gap-2 min-w-0 flex-shrink-0">
+      <nav className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="h-14 sm:h-16 md:h-18 lg:h-20 flex items-center justify-between">
+
+          {/* Logo */}
+          <div
+            className="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-shrink-0"
+          >
             <img
               src={techLogo}
-              alt="Techssetu logo"
-              loading="eager"
-              className="w-10 h-10 sm:w-12 sm:h-12 object-contain flex-shrink-0"
+              alt="Techssetu"
+              className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 object-contain flex-shrink-0"
             />
-            <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent truncate">
+            <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent truncate">
               TECHSSETU
-            </div>
+            </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-4 lg:gap-8 text-gray-800 flex-grow justify-center">
-            <button onClick={() => scrollToSection('home')} className="text-xs sm:text-sm md:text-base lg:text-base hover:text-blue-600 transition-colors whitespace-nowrap">
-              Home
-            </button>
-            <button onClick={() => scrollToSection('about')} className="text-xs sm:text-sm md:text-base lg:text-base hover:text-blue-600 transition-colors whitespace-nowrap">
-              About
-            </button>
-            <button onClick={() => scrollToSection('services')} className="text-xs sm:text-sm md:text-base lg:text-base hover:text-blue-600 transition-colors whitespace-nowrap">
-              Services
-            </button>
-            <button onClick={() => scrollToSection('portfolio')} className="text-xs sm:text-sm md:text-base lg:text-base hover:text-blue-600 transition-colors whitespace-nowrap">
-              Portfolio
-            </button>
-            <button onClick={() => scrollToSection('testimonials')} className="text-xs sm:text-sm md:text-base lg:text-base hover:text-blue-600 transition-colors whitespace-nowrap">
-              Testimonials
-            </button>
+          <div className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8">
+            {navItems.map((item, index) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(item)}
+                className="capitalize text-xs sm:text-sm md:text-base lg:text-base text-gray-700 hover:text-blue-600 transition-colors duration-200 whitespace-nowrap font-medium"
+              >
+                {item}
+              </button>
+            ))}
           </div>
 
-          {/* CTA Button - Hidden on mobile */}
-          <div className="hidden md:block">
+          {/* Desktop CTA */}
+          <div className="hidden md:block flex-shrink-0">
             <Button
               onClick={() => scrollToSection('contact')}
-              className="bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm md:text-sm lg:text-base px-3 sm:px-4 lg:px-6 py-2 whitespace-nowrap"
+              className="bg-blue-600 hover:bg-blue-700 text-xs sm:text-sm md:text-sm lg:text-base px-3 md:px-4 lg:px-6 py-2 md:py-2 lg:py-2.5 font-medium transition-all duration-200"
             >
               Contact Us
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Toggle */}
           <button
-            className="md:hidden text-gray-800 flex-shrink-0 z-[1000]"
+            className="md:hidden p-2 text-gray-800 hover:text-blue-600 transition-colors duration-200 flex-shrink-0"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-label="Toggle Menu"
+            aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
+      </nav>
 
-        {/* Mobile Navigation */}
+      {/* Mobile Menu */}
+      <AnimatePresence>
         {isMobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 z-[999] bg-white pt-16 sm:pt-20 px-4 sm:px-6 overflow-y-auto">
-            <div className="flex flex-col gap-3 sm:gap-4 pb-8">
-              <button
-                onClick={() => scrollToSection('home')}
-                className="text-base sm:text-lg text-gray-800 hover:text-blue-600 transition-colors text-left py-2"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="text-base sm:text-lg text-gray-800 hover:text-blue-600 transition-colors text-left py-2"
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection('services')}
-                className="text-base sm:text-lg text-gray-800 hover:text-blue-600 transition-colors text-left py-2"
-              >
-                Services
-              </button>
-              <button
-                onClick={() => scrollToSection('portfolio')}
-                className="text-base sm:text-lg text-gray-800 hover:text-blue-600 transition-colors text-left py-2"
-              >
-                Portfolio
-              </button>
-              <button
-                onClick={() => scrollToSection('testimonials')}
-                className="text-base sm:text-lg text-gray-800 hover:text-blue-600 transition-colors text-left py-2"
-              >
-                Testimonials
-              </button>
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+           className="fixed left-0 right-0 bottom-0 top-14 sm:top-16 z-[90] bg-white overflow-y-auto overflow-x-hidden"
+
+
+          >
+            <div className="flex flex-col gap-3 sm:gap-4">
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  initial={{ opacity: 0, x: -15 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  className="capitalize text-sm sm:text-base text-left text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium py-2 px-2"
+                >
+                  {item}
+                </motion.button>
+              ))}
+
               <Button
                 onClick={() => scrollToSection('contact')}
-                className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4 sm:mt-6 py-2 sm:py-3"
+                className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4 py-2 sm:py-3 text-sm sm:text-base font-medium transition-all duration-200"
               >
                 Contact Us
               </Button>
             </div>
-          </div>
+          </motion.div>
         )}
-      </nav>
-    </header>
+      </AnimatePresence>
+    </motion.header>
   );
 }
